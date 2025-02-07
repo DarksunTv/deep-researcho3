@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn craco start",
     "build": "yarn craco build",
-    "test": "yarn craco test",
+    "test": "mocha src/tests/**/*.test.js",
     "eject": "yarn react-scripts eject",
     "dev": "yarn start"
   },

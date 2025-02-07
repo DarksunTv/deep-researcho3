@@ -1,23 +1,22 @@
 // YOLO Mode - Quick Logging Implementation
-const winston = require('winston');
+const { createLogger, transports, format } = require('winston');
 
-const logger = winston.createLogger({
+const logger = createLogger({
     level: 'info',
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.json()
+    format: format.combine(
+        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.errors({ stack: true }),
+        format.splat(),
+        format.printf(({ timestamp, level, message, ...meta }) => {
+            return `${timestamp} [${level}]: ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ''}`;
+        })
     ),
     transports: [
-        new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'logs/combined.log' })
+        new transports.Console(),
+        // You can add file transports here for production
+        // new transports.File({ filename: 'error.log', level: 'error' })
     ]
 });
-
-if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
-        format: winston.format.simple()
-    }));
-}
 
 const logAPIRequest = (req, res, next) => {
     logger.info({
