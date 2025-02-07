@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHL Workflow Agent - Dark Mode</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>GHL Workflow Agent</h1>
+  </header>
+  <main>
+    <section id="command-section">
+      <h2>Agent Commands</h2>
+      <input type="text" id="command-input" placeholder="Enter command (e.g., list workflows)" />
+      <button id="execute-command">Execute Command</button>
+      <div id="command-output"></div>
+    </section>
+
+    <!-- New section for frequently used commands -->
+    <section id="frequent-commands">
+      <h2>Frequently Used Commands</h2>
+      <div id="frequent-commands-buttons">
+        <button class="frequent-command" data-command="list workflows">List Workflows</button>
+        <button class="frequent-command" data-command="get workflow">Get Workflow</button>
+        <button class="frequent-command" data-command="create workflow">Create Workflow</button>
+        <button class="frequent-command" data-command="update workflow">Update Workflow</button>
+        <button class="frequent-command" data-command="delete workflow">Delete Workflow</button>
+      </div>
+    </section>
+
+    <section id="info-section">
+      <h2>Agent Status</h2>
+      <div id="agent-status">Status messages will appear here.</div>
+    </section>
+
+    <!-- New section for Agent Logs -->
+    <section id="logs-section">
+      <h2>Agent Logs</h2>
+      <div id="agent-logs">No logs available.</div>
+      <button id="clear-logs">Clear Logs</button>
+    </section>
+
+    <!-- New section for Settings -->
+    <section id="settings-section">
+      <h2>Settings</h2>
+      <label for="dark-mode-toggle">Dark Mode:</label>
+      <input type="checkbox" id="dark-mode-toggle" checked />
+      <button id="apply-settings">Apply Settings</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GHL Workflow Integration</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html> 
